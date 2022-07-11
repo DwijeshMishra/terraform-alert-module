@@ -1,0 +1,5 @@
+ <<-QUERY
+  requests
+    | where tolong(resultCode) >= 500
+    | summarize count() by bin(timestamp, 5m)
+  QUERY
